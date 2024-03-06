@@ -1,7 +1,7 @@
 [tool.poetry]
-name = "testing-lambda-functions"
+name = "route-53-latency-health-checks"
 version = "0.1.0"
-description = "This is a simple project showing how to test Lambda functions with different approaches."
+description = "This is a simple project showing how to create health checks for Route53 Latency records."
 authors = ["sz3jdii <adam.swiatkowski@iodi.pl>"]
 readme = "README.md"
 
@@ -11,18 +11,15 @@ python = "^3.12"
 # 3rdparties
 boto3 = "^1.28.62"
 botocore = "^1.28.62"
-aws-lambda-context = "*"
 pydantic = "*"
-aws-lambda-powertools =  {extras = ["all"],version = "*"}
 requests = "*"
 cachetools = "*"
-boto3-stubs = { version = "*", extras = ["cloudformation", "lambda"] }
-aws-lambda-typing = "*"
-lambda-decorators = "*"
+boto3-stubs = { version = "*", extras = ["cloudformation", "lambda", "route53"] }
+
 
 [tool.poetry.group.dev.dependencies]
 # Internal
-testing-lambda-functions-cdk = {path = "cdk", develop = true}
+route-53-latency-health-checks-cdk = {path = "cdk", develop = true}
 
 # 3rdparties
 pytest = "*"
@@ -32,7 +29,7 @@ pycodestyle = "*"
 python-dotenv = "*"
 GitPython = "*"
 yapf = "*"
-flake8 = "*"
+pylint = "*"
 isort = "*"
 "aws-cdk.aws-lambda-python-alpha" = "*"
 

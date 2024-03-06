@@ -1,13 +1,12 @@
 
-# Testing Lambda functions
+# Route53 Latency Based Routing Health Checks
 <img src="diagram/testing_lambda_functions_diagram.png" alt="Lambda testing architecture diagram">
 <br><br>
 
 ## Description
-This is a simple project showing how to test Lambda functions with different approaches.
+This is a simple project showing how to create health checks for Latency based routing in AWS Route53.
 
 ## Prerequisite
- * Docker
  * AWS CDK CLI
  * AWS CLI
  * node.js
@@ -17,7 +16,7 @@ This is a simple project showing how to test Lambda functions with different app
 ## Quick start
 1. Clone the repo
    ```sh
-   git clone https://github.com/sz3jdii/testing-lambda-functions.git
+   git clone https://github.com/sz3jdii/route-53-latency-health-checks.git
    ```
 2. Install dependencies
     ```sh
@@ -43,6 +42,6 @@ This is a simple project showing how to test Lambda functions with different app
 * [Blog](https://cloudybarz.com/)
 
 ### License
-Copyright © 2023, [Adam Świątkowski](https://github.com/sz3jdii).
+Copyright © 2024, [Adam Świątkowski](https://github.com/sz3jdii).
 Released under the [MIT License](LICENSE).
 

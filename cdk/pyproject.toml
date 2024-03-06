@@ -1,16 +1,16 @@
 [tool.poetry]
-name = "testing-lambda-functions-cdk"
+name = "route-53-latency-health-checks-cdk"
 version = "0.1.0"
-description = "This is a simple project showing how to test Lambda functions with different approaches."
+description = "This is a simple project showing how to create health checks for Route53 Latency records."
 authors = ["sz3jdii <adam.swiatkowski@iodi.pl>"]
-packages = [{ include = "testing_lambda_functions" }]
+packages = [{ include = "route_53_latency_health_checks" }]
 
 [tool.poetry.dependencies]
-python = "^3.10"
+python = "^3.12"
 
 # 3rdparties
-aws-cdk-lib = "^2.87.0"
-constructs = "10.0.*"
+aws-cdk-lib = ">=2.0.0"
+constructs = ">=10.0.0"
 
 
 [build-system]
