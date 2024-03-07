@@ -2,8 +2,8 @@
 from logging import Logger
 
 import boto3
+from latency_based_routing.app import get_stack_name
 from mypy_boto3_cloudformation import CloudFormationClient
-from route_53_latency_health_checks.app import get_stack_name
 
 logger: Logger = Logger(name='cfn_reader')
 

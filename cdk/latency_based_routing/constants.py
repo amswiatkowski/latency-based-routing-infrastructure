@@ -1,6 +1,6 @@
 from typing import Final
 
-SERVICE_NAME: Final[str] = 'Route53LatencyHealthChecks'
+SERVICE_NAME: Final[str] = 'LatencyBasedRouting'
 
 HOSTED_ZONE_NAME: Final[str] = "cloudybarz.com"
 HOSTED_ZONE_SUBDOMAIN: Final[str] = "cloud"

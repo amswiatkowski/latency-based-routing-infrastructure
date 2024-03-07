@@ -8,10 +8,10 @@ from aws_cdk.aws_route53 import CfnRecordSet
 from boto3 import Session
 from botocore.exceptions import ClientError
 from constructs import Construct
-from mypy_boto3_route53 import Route53Client
-from route_53_latency_health_checks.constants import (
+from latency_based_routing.constants import (
     HOSTED_ZONE_NAME, HOSTED_ZONE_SUBDOMAIN, HOSTED_ZONE_WEBSERVER_RECORD_NAME,
     LOAD_BALANCERS_HOSTED_ZONE_PER_REGION, MASTER_REGION)
+from mypy_boto3_route53 import Route53Client
 
 
 class Route53HostedZoneRecordsConstruct(Construct):

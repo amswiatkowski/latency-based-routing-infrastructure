@@ -4,9 +4,9 @@ from typing import Optional
 from aws_cdk import CfnOutput, Fn, Stack
 from aws_cdk.aws_route53 import HostedZone
 from constructs import Construct
-from route_53_latency_health_checks.constants import (HOSTED_ZONE_NAME,
-                                                      HOSTED_ZONE_SUBDOMAIN)
-from route_53_latency_health_checks.utils import is_master_region
+from latency_based_routing.constants import (HOSTED_ZONE_NAME,
+                                             HOSTED_ZONE_SUBDOMAIN)
+from latency_based_routing.utils import is_master_region
 
 
 class Route53HostedZoneConstruct(Construct):

@@ -1,6 +1,6 @@
 import os
 
-from route_53_latency_health_checks.constants import MASTER_REGION
+from latency_based_routing.constants import MASTER_REGION
 
 
 def is_master_region() -> bool:

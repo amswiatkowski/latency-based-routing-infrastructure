@@ -1,9 +1,9 @@
 [tool.poetry]
-name = "route-53-latency-health-checks-cdk"
+name = "latency-based-routing-cdk"
 version = "0.1.0"
-description = "This is a simple project showing how to create health checks for Route53 Latency records."
+description = "This is a simple project showing how to whole infrastructure with latency based routing using Amazon Route 53."
 authors = ["sz3jdii <adam.swiatkowski@iodi.pl>"]
-packages = [{ include = "route_53_latency_health_checks" }]
+packages = [{ include = "latency_based_routing" }]
 
 [tool.poetry.dependencies]
 python = "^3.12"

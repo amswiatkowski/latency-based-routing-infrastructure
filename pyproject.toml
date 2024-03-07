@@ -1,7 +1,7 @@
 [tool.poetry]
-name = "route-53-latency-health-checks"
+name = "latency-based-routing"
 version = "0.1.0"
-description = "This is a simple project showing how to create health checks for Route53 Latency records."
+description = "This is a simple project showing how to whole infrastructure with latency based routing using Amazon Route 53."
 authors = ["sz3jdii <adam.swiatkowski@iodi.pl>"]
 readme = "README.md"
 
@@ -19,7 +19,7 @@ boto3-stubs = { version = "*", extras = ["cloudformation", "lambda", "route53"] 
 
 [tool.poetry.group.dev.dependencies]
 # Internal
-route-53-latency-health-checks-cdk = {path = "cdk", develop = true}
+latency-based-routing-cdk = {path = "cdk", develop = true}
 
 # 3rdparties
 pytest = "*"

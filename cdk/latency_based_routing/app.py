@@ -7,9 +7,9 @@ from typing import Final
 from aws_cdk import App, Environment
 from boto3 import client, session
 from git import Repo
-from route_53_latency_health_checks.constants import SERVICE_NAME
-from route_53_latency_health_checks.route53_latency_health_checks_stack import \
-    Route53LatencyHealthChecksStack
+from latency_based_routing.constants import SERVICE_NAME
+from latency_based_routing.latency_based_routing_stack import \
+    LatencyBasedRoutingStack
 
 
 def get_username() -> str:
@@ -37,10 +37,10 @@ def get_stack_name() -> str:
 account = client('sts').get_caller_identity()['Account']
 region = session.Session().region_name
 app = App()
-route_53_latency_health_checks_stack = Route53LatencyHealthChecksStack(
+latency_based_routing_stack = LatencyBasedRoutingStack(
     app,
     get_stack_name(),
-    description='Route53 Latency Health Checks Stack',
+    description='Route53 Latency based routing Stack',
     env=Environment(account=os.environ.get('AWS_DEFAULT_ACCOUNT', account),
                     region=os.environ.get('AWS_DEFAULT_REGION', region)),
 )

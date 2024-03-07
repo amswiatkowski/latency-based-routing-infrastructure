@@ -251,3 +251,4 @@ lambda_requirements.txt
 node_modules/
 .ruff_cache
 .idea
+cdk.context.json
