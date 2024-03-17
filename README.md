@@ -41,8 +41,8 @@ This is a simple project showing how to create complete latency-based routing in
 
 ## Useful commands
  * `./lint.sh`          Fixes indents and checks your code quality
- * `./destroy.sh`       Triggers cdk destroy
- * `./deploy/sh`        Deploys stack to the AWS account
+ * `./destroy.sh --region us-east-1`       Triggers cdk destroy
+ * `./deploy/sh --region us-east-1`        Deploys stack to the AWS account
  * `pytest -vv ./tests` Run tests
 
 ## Useful links
