@@ -1,10 +1,10 @@
 
-# Route53 Latency Based Routing Health Checks
-<img src="diagram/testing_lambda_functions_diagram.png" alt="Lambda testing architecture diagram">
+# Latency-based routing solution with Python and AWS CDK
+<img src="diagram/latency_based_routing_solution_diagram.png" alt="Latency-based routing solution diagram">
 <br><br>
 
 ## Description
-This is a simple project showing how to create health checks for Latency based routing in AWS Route53.
+This is a simple project showing how to create complete latency-based routing infrastructure in Amazon Route 53 using AWS CDK and Python.
 
 ## Prerequisite
  * AWS CDK CLI
@@ -16,15 +16,27 @@ This is a simple project showing how to create health checks for Latency based r
 ## Quick start
 1. Clone the repo
    ```sh
-   git clone https://github.com/sz3jdii/route-53-latency-health-checks.git
+   git clone https://github.com/sz3jdii/latency-based-routing-infrastructure.git
    ```
 2. Install dependencies
     ```sh
     poetry install
     ```
-3. Deploy the project
+3. Set your main's SSO region in [constants.py](./cdk/latency_based_routing/constants.py)
+    ```python
+    MASTER_REGION: Final[str] = 'eu-central-1'
+    ```   
+4. Deploy the hosted zone
    ```sh
-   ./deploy.sh
+   ./deploy.sh --region eu-central-1
+   ```
+5. Deploy the Webserver (main-region)
+   ```sh
+   ./deploy.sh --region eu-central-1
+   ```
+6. Deploy the Webserver (secondary-region)
+   ```sh
+   ./deploy.sh --region us-east-1
    ```
 
 ## Useful commands

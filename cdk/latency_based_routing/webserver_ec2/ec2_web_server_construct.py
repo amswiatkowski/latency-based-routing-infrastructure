@@ -24,6 +24,8 @@ class Ec2WebserverConstruct(Construct):
             self,
             "WebserverASG",
             vpc=vpc,
+            max_capacity=2,
+            min_capacity=1,
             instance_type=ec2.InstanceType.of(
                 ec2.InstanceClass.BURSTABLE4_GRAVITON, ec2.InstanceSize.MICRO),
             machine_image=ec2.AmazonLinuxImage(
@@ -38,6 +40,7 @@ class Ec2WebserverConstruct(Construct):
                                                 internet_facing=True)
 
         listener = self.lb.add_listener("WebserverListener", port=80)
+        # health check is needed to ensure Route 53 will be aware of the health of the ALB
         health_check = elbv2.HealthCheck(
             interval=Duration.seconds(30),
             path="/",

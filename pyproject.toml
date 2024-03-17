@@ -1,7 +1,7 @@
 [tool.poetry]
 name = "latency-based-routing"
 version = "0.1.0"
-description = "This is a simple project showing how to whole infrastructure with latency based routing using Amazon Route 53."
+description = "This is a simple project showing how to build the whole infrastructure with latency based routing using Amazon Route 53."
 authors = ["sz3jdii <adam.swiatkowski@iodi.pl>"]
 readme = "README.md"
 
