@@ -16,7 +16,7 @@ This is a simple project showing how to create complete latency-based routing in
 ## Quick start
 1. Clone the repo
    ```sh
-   git clone https://github.com/sz3jdii/latency-based-routing-infrastructure.git
+   git clone https://github.com/amswiatkowski/latency-based-routing-infrastructure.git
    ```
 2. Install dependencies
     ```sh
@@ -50,10 +50,10 @@ This is a simple project showing how to create complete latency-based routing in
 
 ## Author
 **Adam Świątkowski**
-* [github/sz3jdii](https://github.com/sz3jdii)
+* [github/amswiatkowski](https://github.com/amswiatkowski)
 * [Blog](https://cloudybarz.com/)
 
 ### License
-Copyright © 2024, [Adam Świątkowski](https://github.com/sz3jdii).
+Copyright © 2024, [Adam Świątkowski](https://github.com/amswiatkowski).
 Released under the [MIT License](LICENSE).
 
