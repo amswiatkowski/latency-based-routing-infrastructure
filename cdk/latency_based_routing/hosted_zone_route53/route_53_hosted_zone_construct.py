@@ -21,19 +21,10 @@ class Route53HostedZoneConstruct(Construct):
     def _create_hosted_zone(self) -> Optional[HostedZone]:
         hosted_zone = None
         if is_master_region():
-            hosted_zone = HostedZone(
-                self,
-                "WebserverHostedZone",
-                zone_name=f'{HOSTED_ZONE_SUBDOMAIN}.{HOSTED_ZONE_NAME}',
-                comment='Hosted zone for webserver')
+            hosted_zone = HostedZone(self, "WebserverHostedZone", zone_name=f'{HOSTED_ZONE_SUBDOMAIN}.{HOSTED_ZONE_NAME}',
+                                     comment='Hosted zone for webserver')
 
-            CfnOutput(self,
-                      "HostedZoneId",
-                      export_name="HostedZoneId",
-                      value=hosted_zone.hosted_zone_id)
-            CfnOutput(self,
-                      "HostedZoneDNSNames",
-                      export_name="HostedZoneDNSNames",
-                      value=Fn.join(', ',
-                                    hosted_zone.hosted_zone_name_servers))
+            CfnOutput(self, "HostedZoneId", export_name="HostedZoneId", value=hosted_zone.hosted_zone_id)
+            CfnOutput(self, "HostedZoneDNSNames", export_name="HostedZoneDNSNames", value=Fn.join(', ',
+                                                                                                  hosted_zone.hosted_zone_name_servers))
         return hosted_zone

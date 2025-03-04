@@ -16,41 +16,27 @@ from mypy_boto3_route53 import Route53Client
 
 class Route53HostedZoneRecordsConstruct(Construct):
 
-    def __init__(self, scope: Construct, stack_id: str,
-                 lb: elbv2.ApplicationLoadBalancer) -> None:
+    def __init__(self, scope: Construct, stack_id: str, lb: elbv2.ApplicationLoadBalancer) -> None:
         super().__init__(scope, stack_id)
         self.stack = Stack.of(self)
         self.region = self.stack.region
-        self.logger: Logger = Logger(
-            name='route53_hosted_zone_records_construct')
+        self.logger: Logger = Logger(name='route53_hosted_zone_records_construct')
         hosted_zone = self._get_hosted_zone()
         if hosted_zone:
             self.dns_record = CfnRecordSet(
-                self,
-                "WebServerRecord",
-                name=
-                f'{HOSTED_ZONE_WEBSERVER_RECORD_NAME}.{HOSTED_ZONE_SUBDOMAIN}.{HOSTED_ZONE_NAME}',
-                type="A",
-                alias_target=CfnRecordSet.AliasTargetProperty(
-                    dns_name=lb.load_balancer_dns_name,
-                    hosted_zone_id=LOAD_BALANCERS_HOSTED_ZONE_PER_REGION[
-                        self.region],
-                    evaluate_target_health=True),
-                hosted_zone_id=hosted_zone,
-                region=self.region,
+                self, "WebServerRecord", name=f'{HOSTED_ZONE_WEBSERVER_RECORD_NAME}.{HOSTED_ZONE_SUBDOMAIN}.{HOSTED_ZONE_NAME}', type="A",
+                alias_target=CfnRecordSet.AliasTargetProperty(dns_name=lb.load_balancer_dns_name,
+                                                              hosted_zone_id=LOAD_BALANCERS_HOSTED_ZONE_PER_REGION[self.region],
+                                                              evaluate_target_health=True), hosted_zone_id=hosted_zone, region=self.region,
                 set_identifier=f"WEBSERVER_{self.region.upper()}")
 
     def _get_hosted_zone(self) -> Optional[str]:
         try:
-            client: Route53Client = Session(
-                region_name=self.region).client("route53")
-            response = client.list_hosted_zones_by_name(
-                DNSName=f'{HOSTED_ZONE_SUBDOMAIN}.{HOSTED_ZONE_NAME}')
-            hosted_zone_id = response['HostedZones'][0]['Id'].replace(
-                '/hostedzone/', '')
+            client: Route53Client = Session(region_name=self.region).client("route53")
+            response = client.list_hosted_zones_by_name(DNSName=f'{HOSTED_ZONE_SUBDOMAIN}.{HOSTED_ZONE_NAME}')
+            hosted_zone_id = response['HostedZones'][0]['Id'].replace('/hostedzone/', '')
 
-            self.logger.debug(
-                f'Got the following hosted zone id [{hosted_zone_id}]')
+            self.logger.debug(f'Got the following hosted zone id [{hosted_zone_id}]')
             return hosted_zone_id
         except (ClientError, IndexError) as exc:
             self.logger.error(

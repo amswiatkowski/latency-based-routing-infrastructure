@@ -13,11 +13,7 @@ class LatencyBasedRoutingStack(Stack):
 
     def __init__(self, scope: Construct, construct_id: str, **kwargs) -> None:
         super().__init__(scope, construct_id, **kwargs)
-        hosted_zone_construct = Route53HostedZoneConstruct(
-            self, "HostedZoneConstruct")
-        web_server_construct = Ec2WebserverConstruct(self,
-                                                     "WebServerConstruct")
-        hosted_zone_records_construct = Route53HostedZoneRecordsConstruct(
-            self,
-            stack_id="HostedZoneRecordsConstruct",
-            lb=web_server_construct.lb)
+        hosted_zone_construct = Route53HostedZoneConstruct(self, "HostedZoneConstruct")
+        web_server_construct = Ec2WebserverConstruct(self, "WebServerConstruct")
+        hosted_zone_records_construct = Route53HostedZoneRecordsConstruct(self, stack_id="HostedZoneRecordsConstruct",
+                                                                          lb=web_server_construct.lb)

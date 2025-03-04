@@ -41,7 +41,6 @@ latency_based_routing_stack = LatencyBasedRoutingStack(
     app,
     get_stack_name(),
     description='Route53 Latency based routing Stack',
-    env=Environment(account=os.environ.get('AWS_DEFAULT_ACCOUNT', account),
-                    region=os.environ.get('AWS_DEFAULT_REGION', region)),
+    env=Environment(account=os.environ.get('AWS_DEFAULT_ACCOUNT', account), region=os.environ.get('AWS_DEFAULT_REGION', region)),
 )
 app.synth()
